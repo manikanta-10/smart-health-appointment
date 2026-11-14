@@ -1,0 +1,38 @@
+{
+  "name": "smart-health-appointment",
+  "version": "1.0.0",
+  "description": "Smart Health Appointment Booking System - Full Stack FSD project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "seed": "node database/seed.js",
+    "test": "node --test --test-concurrency=1 tests/api.test.js",
+    "reminders": "node -e \"require('dotenv').config(); require('./services/reminderService').runReminderCheck().then(r=>{console.log(r);process.exit(0)}).catch(e=>{console.error(e);process.exit(1)})\""
+  },
+  "keywords": [
+    "healthcare",
+    "appointment",
+    "express",
+    "mysql",
+    "fsd"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.12.0",
+    "node-cron": "^3.0.3",
+    "twilio": "^5.4.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "supertest": "^7.0.0"
+  }
+}

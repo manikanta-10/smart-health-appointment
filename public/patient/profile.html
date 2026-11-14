@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile · Smart Health</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div id="page-content" style="display:none" data-title="My Profile" data-subtitle="Manage your personal details and account security">
+    <div class="profile-header mb-4" id="profileHeader">
+      <span class="avatar lg" id="profileAvatar">?</span>
+      <div>
+        <h2 id="profileName">Loading...</h2>
+        <p id="profileMeta">Patient account</p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="card">
+          <div class="card-header"><i class="fa-regular fa-user me-2 text-primary"></i>Personal information</div>
+          <div class="card-body">
+            <form id="profileForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="name">Full name</label>
+                  <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="phone">Phone number</label>
+                  <input type="tel" class="form-control" id="phone" required>
+                  <div class="form-text">Used for appointment contact details.</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="email">Email address</label>
+                  <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Member since</label>
+                  <input type="text" class="form-control" id="createdAt" disabled>
+                </div>
+              </div>
+              <button class="btn btn-primary mt-3" type="submit" id="saveProfile">
+                <span class="spinner-border spinner-border-sm me-2 d-none" id="saveSpinner"></span>Save changes
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="card">
+          <div class="card-header"><i class="fa-solid fa-lock me-2 text-primary"></i>Change password</div>
+          <div class="card-body">
+            <form id="passwordForm" novalidate>
+              <div class="mb-3">
+                <label class="form-label" for="currentPassword">Current password</label>
+                <input type="password" class="form-control" id="currentPassword" autocomplete="current-password" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="newPassword">New password</label>
+                <input type="password" class="form-control" id="newPassword" autocomplete="new-password" required>
+                <div class="form-text">At least 8 characters with one letter and one number.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="confirmNewPassword">Confirm new password</label>
+                <input type="password" class="form-control" id="confirmNewPassword" autocomplete="new-password" required>
+              </div>
+              <button class="btn btn-teal w-100" type="submit" id="savePassword">
+                <span class="spinner-border spinner-border-sm me-2 d-none" id="passwordSpinner"></span>Update password
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="alert alert-info mt-3 mb-0" style="font-size:.8rem;">
+          <i class="fa-solid fa-shield-halved me-2"></i>Your password is stored using bcrypt hashing and is never visible to clinic staff.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/layout.js"></script>
+  <script src="/js/patient-profile.js"></script>
+</body>
+</html>

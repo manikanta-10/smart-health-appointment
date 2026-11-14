@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Details · Smart Health</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div id="page-content" style="display:none" data-title="Doctor Details" data-subtitle="Review the profile and book an available slot">
+    <div class="mb-3">
+      <a href="/patient/doctors.html" class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-arrow-left me-2"></i>Back to doctors</a>
+    </div>
+
+    <div class="row g-4" id="doctorPage">
+      <div class="col-lg-5">
+        <div class="card" id="profileCard">
+          <div class="card-body">
+            <div class="loading-box"><span class="spinner-border spinner-border-sm text-primary"></span> Loading doctor profile...</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <span><i class="fa-regular fa-calendar-check me-2 text-primary"></i>Available appointment slots</span>
+            <span class="spec-tag">IST</span>
+          </div>
+          <div class="card-body">
+            <div class="d-flex flex-wrap align-items-end gap-2 mb-3">
+              <div class="flex-grow-1" style="min-width:180px;">
+                <label class="form-label" for="dateInput">Choose a date</label>
+                <input type="date" class="form-control" id="dateInput">
+              </div>
+              <button class="btn btn-outline-secondary" id="prevDay" title="Previous day"><i class="fa-solid fa-chevron-left"></i></button>
+              <button class="btn btn-outline-secondary" id="nextDay" title="Next day"><i class="fa-solid fa-chevron-right"></i></button>
+              <button class="btn btn-outline-primary" id="findNext"><i class="fa-solid fa-wand-magic-sparkles me-1"></i>Next available</button>
+            </div>
+
+            <div id="slotArea">
+              <div class="loading-box"><span class="spinner-border spinner-border-sm text-primary"></span> Loading slots...</div>
+            </div>
+
+            <div class="alert alert-info mt-3 mb-0" style="font-size:.78rem;">
+              <i class="fa-solid fa-shield-halved me-1"></i>
+              Only available slots are shown. Booked times are hidden automatically.
+            </div>
+
+            <div id="bookingPanel" class="mt-4 d-none">
+              <div class="p-3 rounded-3 mb-3" style="background:#f0f7ff;border:1px solid #d7e8fb;">
+                <div class="fw-semibold mb-1" style="font-size:.85rem;"><i class="fa-solid fa-check-circle text-primary me-2"></i>Selected slot</div>
+                <div class="small" id="selectedSlotText"></div>
+              </div>
+              <label class="form-label" for="reasonInput">Reason for visit <span class="text-muted fw-normal">(optional)</span></label>
+              <textarea class="form-control" id="reasonInput" rows="2" maxlength="500" placeholder="Briefly describe your symptoms or reason"></textarea>
+              <button class="btn btn-primary w-100 mt-3" id="bookBtn"><i class="fa-regular fa-calendar-plus me-2"></i>Confirm booking</button>
+              <div class="text-muted mt-2" style="font-size:.75rem;">By booking you agree to arrive 10 minutes early. Cancellations are allowed up to 6 hours before the appointment.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert-warning mt-3 mb-0" style="font-size:.8rem;">
+          <i class="fa-solid fa-triangle-exclamation me-2"></i><strong>Weekly limit:</strong> a maximum of 2 appointments with the same doctor per calendar week (Monday to Sunday). Cancelled appointments do not count.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/layout.js"></script>
+  <script src="/js/patient-doctor.js"></script>
+</body>
+</html>

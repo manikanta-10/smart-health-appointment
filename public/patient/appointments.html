@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Appointments · Smart Health</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div id="page-content" style="display:none" data-title="My Appointments" data-subtitle="Upcoming visits and your complete appointment history">
+    <div class="page-header">
+      <div>
+        <h1>My appointments</h1>
+        <p>Track upcoming visits, cancel when needed and review your history.</p>
+      </div>
+      <a href="/patient/doctors.html" class="btn btn-primary"><i class="fa-solid fa-plus me-2"></i>Book new appointment</a>
+    </div>
+
+    <div class="alert alert-warning" style="font-size:.82rem;">
+      <i class="fa-solid fa-clock me-2"></i><strong>Cancellation policy:</strong> appointments can be cancelled only when at least 6 hours remain before the scheduled time. Cancelled visits do not count towards the weekly limit.
+    </div>
+
+    <div class="card">
+      <div class="card-header p-0" style="border-bottom:1px solid #eef2f7;">
+        <ul class="nav nav-tabs px-3 pt-2" id="apptTabs">
+          <li class="nav-item"><button class="nav-link active" data-scope="upcoming"><i class="fa-regular fa-calendar-check me-2"></i>Upcoming</button></li>
+          <li class="nav-item"><button class="nav-link" data-scope="history"><i class="fa-solid fa-clock-rotate-left me-2"></i>History</button></li>
+        </ul>
+      </div>
+      <div class="table-responsive">
+        <table class="table align-middle">
+          <thead>
+            <tr>
+              <th>Doctor</th>
+              <th>Date &amp; time</th>
+              <th>Reason</th>
+              <th>Fee</th>
+              <th>Status</th>
+              <th class="text-end">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="appointmentsBody">
+            <tr><td colspan="6"><div class="loading-box"><span class="spinner-border spinner-border-sm text-primary"></span> Loading appointments...</div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/layout.js"></script>
+  <script src="/js/patient-appointments.js"></script>
+</body>
+</html>
